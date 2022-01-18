@@ -1,14 +1,35 @@
 import { useEffect, useState } from "react"
+import AddUser from "./AddUser"
 
 function Login() {
 
     const [users, setUsers] = useState([])
+    const [show, setShow] = useState(false)
 
     useEffect(() => {
         fetch('http://localhost:4000/users')
             .then(resp => resp.json())
             .then(usersFromServer => setUsers(usersFromServer))
     }, [])
+
+    function handleOnClick() {
+        setShow(true)
+    }
+
+    function createUser(firstName, lastName, phoneNumber) {
+        return fetch('http://localhost:4000/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                phoneNumber: phoneNumber,
+                avatar: `https://avatars.dicebear.com/api/avataaars/${firstName}${lastName}.svg`
+            })
+        }).then(resp => resp.json())
+    }
 
     return (
         <div className="main-wrapper login">
@@ -17,7 +38,7 @@ function Login() {
                 <ul>
                     {
                         users.map(user => (
-                            <li>
+                            <li key={user.id}>
                                 <button className="user-selection">
                                     <img
                                         className="avatar"
@@ -33,7 +54,11 @@ function Login() {
                     }
 
                     <li>
-                        <button className="user-selection"><h3>+ Add a new user</h3></button>
+                        <button className="user-selection" onClick={() =>
+                            handleOnClick()
+                        }>
+                            <h3 >+ Add a new user</h3></button>
+                        <AddUser show={show} setShow={setShow} createUser={createUser} users={users} setUsers={setUsers} />
                     </li>
 
                 </ul>

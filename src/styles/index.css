@@ -231,3 +231,41 @@ textarea:focus {
     height: 95vh;
   }
 }
+
+.add-modal{
+  display: grid;
+  background-color: #00000055;
+  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+.modal{
+  background-color: white;
+  position: relative;  
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.firstname,.lastname,.phone{
+   display: block;
+  padding: 5px;
+  margin-top: 0.5rem;
+ border-radius: 20px;
+  border-color: rgb(33, 190, 104);
+}
+.submit{
+  background-color: green;
+  color: white;
+}
+
+.close-button{
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  padding: 5px 10px;
+  border-radius: 100%;
+  background-color: rgb(33, 190, 104);
+}
