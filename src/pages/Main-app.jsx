@@ -1,4 +1,6 @@
-function MainApp() {
+import SideChat from "./Side-chat"
+
+function MainApp({ user }) {
     return (
         <div className="main-wrapper">
 
@@ -9,10 +11,10 @@ function MainApp() {
                         className="avatar"
                         width="50"
                         height="50"
-                        src="https://robohash.org/2"
+                        src={user.avatar}
                         alt=""
                     />
-                    <h3>Tin Man</h3>
+                    <h3>{user.firstName} {user.lastName}</h3>
                 </header>
 
 
@@ -24,7 +26,7 @@ function MainApp() {
                         value=""
                     />
                 </form>
-
+                <SideChat />
 
             </aside>
 
@@ -41,7 +43,7 @@ function MainApp() {
                         <input
                             type="text"
                             placeholder="Type a message"
-                            rows={1}
+
                             value=""
                         /><button type="submit">
 

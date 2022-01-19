@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import User from "../components/User"
 import AddUser from "./AddUser"
 
-function Login() {
-
+function Login({ setUser }) {
     const [users, setUsers] = useState([])
+
     const [show, setShow] = useState(false)
 
     useEffect(() => {
@@ -12,9 +14,20 @@ function Login() {
             .then(usersFromServer => setUsers(usersFromServer))
     }, [])
 
+
     function handleOnClick() {
         setShow(true)
     }
+
+
+    const navigate = useNavigate()
+
+    function getUser(user) {
+        setUser(user)
+        navigate('/logged-in')
+    }
+
+
 
     function createUser(firstName, lastName, phoneNumber) {
         return fetch('http://localhost:4000/users', {
@@ -37,20 +50,9 @@ function Login() {
                 <h2>Choose your user!</h2>
                 <ul>
                     {
-                        users.map(user => (
-                            <li key={user.id}>
-                                <button className="user-selection">
-                                    <img
-                                        className="avatar"
-                                        width="50"
-                                        height="50"
-                                        src={user.avatar}
-                                        alt=""
-                                    />
-                                    <h3>{user.firstName}  {user.lastName}</h3>
-                                </button>
-                            </li>
-                        ))
+                        users.map(user =>
+                            <User user={user} getUser={getUser} />
+                        )
                     }
 
                     <li>
