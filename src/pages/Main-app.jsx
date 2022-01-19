@@ -1,6 +1,7 @@
 import SideChat from "./Side-chat"
+import MessagesList from "./Messages-list"
 
-function MainApp({ user }) {
+function MainApp({ user, users }) {
     return (
         <div className="main-wrapper">
 
@@ -26,16 +27,15 @@ function MainApp({ user }) {
                         value=""
                     />
                 </form>
-                <SideChat />
+                <SideChat users={users} user={user} />
 
             </aside>
-
             <main className="conversation">
 
                 <header className="panel"></header>
 
 
-                <ul className="conversation__messages"></ul>
+                <MessagesList />
 
 
                 <footer>
@@ -62,6 +62,7 @@ function MainApp({ user }) {
                     </form>
                 </footer>
             </main>
+            )
         </div>
     )
 }

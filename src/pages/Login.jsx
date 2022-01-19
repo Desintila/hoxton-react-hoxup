@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom"
 import User from "../components/User"
 import AddUser from "./AddUser"
 
-function Login({ setUser }) {
-    const [users, setUsers] = useState([])
+function Login({ setUser, users, setUsers }) {
+
 
     const [show, setShow] = useState(false)
 

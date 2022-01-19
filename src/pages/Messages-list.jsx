@@ -52,3 +52,4 @@ function MessagesList() {
 
     )
 }
+export default MessagesList
