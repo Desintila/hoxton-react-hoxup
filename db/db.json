@@ -42,6 +42,18 @@
       "messageText": "Hello! 👋 ",
       "conversationId": 1,
       "id": 1
+    },
+    {
+      "userId": 3,
+      "messageText": "Hello! 👋 ",
+      "conversationId": 2,
+      "id": 2
+    },
+    {
+      "userId": 4,
+      "messageText": "Hello! 👋 ",
+      "conversationId": 3,
+      "id": 3
     }
   ],
   "conversations": [
@@ -49,6 +61,26 @@
       "userId": 1,
       "participantId": 2,
       "id": 1
+    },
+    {
+      "userId": 2,
+      "participantId": 3,
+      "id": 2
+    },
+    {
+      "userId": 3,
+      "participantId": 4,
+      "id": 3
+    },
+    {
+      "participantId": 5,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "participantId": 2,
+      "userId": 5,
+      "id": 6
     }
   ]
 }

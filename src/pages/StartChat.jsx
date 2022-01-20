@@ -1,4 +1,4 @@
-function NewChat({ show, setShow, users, user }) {
+function NewChat({ show, setShow, users, user, createConversation, conversations }) {
     if (!show) {
         return null
     }
@@ -10,6 +10,16 @@ function NewChat({ show, setShow, users, user }) {
         filteredUsers = filteredUsers.filter(filterUser => {
             return filterUser !== user
         })
+        filteredUsers = filteredUsers.filter(user => {
+            for (const conversation of conversations) {
+                if (conversation.userId === user.id)
+                    return false
+                else if (conversation.participantId === user.id)
+                    return false
+
+            }
+            return true
+        })
         return filteredUsers
     }
 
@@ -20,7 +30,7 @@ function NewChat({ show, setShow, users, user }) {
                 <h1>Pick a user to talk to</h1>
                 <ul>{
                     filterUser().map(user => (
-                        <li><button className="chat-button">
+                        <li key={user.id} ><button className="chat-button" onClick={() => createConversation(user.id)}>
                             <img
                                 className="avatar"
                                 height="50"

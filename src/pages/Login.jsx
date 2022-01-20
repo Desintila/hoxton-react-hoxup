@@ -51,7 +51,7 @@ function Login({ setUser, users, setUsers }) {
                 <ul>
                     {
                         users.map(user =>
-                            <User user={user} getUser={getUser} />
+                            <User key={user.id} user={user} getUser={getUser} />
                         )
                     }
 
