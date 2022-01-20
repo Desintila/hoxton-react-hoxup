@@ -5,20 +5,23 @@ import { useNavigate, useParams } from "react-router-dom"
 
 function MainApp({ user, users }) {
     const navigate = useNavigate()
+
     const [conversations, setConversations] = useState([])
+
     const params = useParams()
+
     useEffect(() => {
         if (user === null) return
         fetch(`http://localhost:4000/conversations?userId=${user.id}`)
             .then(resp => resp.json()
                 .then(conversations => setConversations(conversations)))
-    }, [])
+    }, [user])
 
 
     useEffect(() => {
         if (user === null)
             navigate('/')
-    }, [])
+    }, [user, navigate])
 
     function createConversation(participantId) {
         return fetch('http://localhost:4000/conversations', {
@@ -27,15 +30,19 @@ function MainApp({ user, users }) {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                participantId: participantId,
-                userId: user.id
+                userId: user.id,
+                participantId: participantId
+
+
             })
         }).then(resp => resp.json()).then(newConversation => {
             setConversations([...conversations, newConversation])
         })
     }
 
+
     if (user === null) return <h1>Not signed in</h1>
+
     return (
         <div className="main-wrapper">
 
@@ -70,7 +77,7 @@ function MainApp({ user, users }) {
                     <header className="panel"></header>
 
 
-                    <MessagesList />
+                    <MessagesList user={user} />
 
 
                     <footer>

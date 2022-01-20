@@ -45,13 +45,13 @@
     },
     {
       "userId": 3,
-      "messageText": "Hello! 👋 ",
+      "messageText": "Hiii ",
       "conversationId": 2,
       "id": 2
     },
     {
       "userId": 4,
-      "messageText": "Hello! 👋 ",
+      "messageText": "How are you",
       "conversationId": 3,
       "id": 3
     }
@@ -73,14 +73,14 @@
       "id": 3
     },
     {
-      "participantId": 5,
       "userId": 1,
+      "participantId": 5,
       "id": 4
     },
     {
-      "participantId": 2,
       "userId": 5,
-      "id": 6
+      "participantId": 4,
+      "id": 5
     }
   ]
 }

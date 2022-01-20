@@ -12,7 +12,7 @@ function Login({ setUser, users, setUsers }) {
         fetch('http://localhost:4000/users')
             .then(resp => resp.json())
             .then(usersFromServer => setUsers(usersFromServer))
-    }, [])
+    }, [setUsers])
 
 
     function handleOnClick() {
