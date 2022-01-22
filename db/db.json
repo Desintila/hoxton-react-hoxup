@@ -54,6 +54,24 @@
       "messageText": "How are you",
       "conversationId": 3,
       "id": 3
+    },
+    {
+      "userId": 5,
+      "messageText": "Hey Ed",
+      "conversationId": 4,
+      "id": 4
+    },
+    {
+      "userId": 5,
+      "messageText": "Hello",
+      "conversationId": 7,
+      "id": 5
+    },
+    {
+      "userId": 5,
+      "messageText": "Hi Nicolas",
+      "conversationId": 5,
+      "id": 6
     }
   ],
   "conversations": [
@@ -81,6 +99,16 @@
       "userId": 5,
       "participantId": 4,
       "id": 5
+    },
+    {
+      "userId": 1,
+      "participantId": 4,
+      "id": 6
+    },
+    {
+      "userId": 5,
+      "participantId": 2,
+      "id": 7
     }
   ]
 }

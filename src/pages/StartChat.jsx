@@ -1,3 +1,5 @@
+import CreateConversation from "../components/CreateConversation"
+
 function NewChat({ show, setShow, users, user, createConversation, conversations }) {
     if (!show) {
         return null
@@ -30,19 +32,7 @@ function NewChat({ show, setShow, users, user, createConversation, conversations
                 <h1>Pick a user to talk to</h1>
                 <ul>{
                     filterUser().map(user => (
-                        <li key={user.id} ><button className="chat-button" onClick={() => createConversation(user.id)}>
-                            <img
-                                className="avatar"
-                                height="50"
-                                width="50"
-                                alt=""
-                                src={user.avatar}
-                            />
-                            <div>
-                                <h3>{user.firstName}</h3>
-                            </div>
-                        </button>
-                        </li>
+                        <CreateConversation key={user.id} user={user} createConversation={createConversation} />
                     ))}
 
 

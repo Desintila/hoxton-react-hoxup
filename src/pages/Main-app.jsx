@@ -65,45 +65,16 @@ function MainApp({ user, users }) {
                         type="search"
                         name="messagesSearch"
                         placeholder="Search chats"
-                        value=""
+
                     />
                 </form>
                 <SideChat users={users} user={user} conversations={conversations} createConversation={createConversation} />
 
             </aside>
             {params.conversationId ? (
-                <main className="conversation">
 
-                    <header className="panel"></header>
+                <MessagesList user={user} />
 
-
-                    <MessagesList user={user} />
-
-
-                    <footer>
-                        <form className="panel conversation__message-box">
-                            <input
-                                type="text"
-                                placeholder="Type a message"
-
-                                value=""
-                            /><button type="submit">
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="24"
-                                    height="24"
-                                >
-                                    <path
-                                        fill="currentColor"
-                                        d="M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"
-                                    ></path>
-                                </svg>
-                            </button>
-                        </form>
-                    </footer>
-                </main>
             ) : null}
         </div>
     )
