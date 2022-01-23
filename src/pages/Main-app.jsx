@@ -8,6 +8,7 @@ function MainApp({ user, users, setUser, setUsers }) {
     const navigate = useNavigate()
 
     const [conversations, setConversations] = useState([])
+    const [search, setSearch] = useState('')
 
     const params = useParams()
 
@@ -42,6 +43,12 @@ function MainApp({ user, users, setUser, setUsers }) {
     }
 
 
+
+    let filteredUsers = users
+    filteredUsers = filteredUsers.filter(function (user) {
+        return user.firstName.toLowerCase().includes(search.toLowerCase())
+    })
+
     if (user === null) return <h1>Not signed in</h1>
 
     return (
@@ -57,10 +64,10 @@ function MainApp({ user, users, setUser, setUsers }) {
                         type="search"
                         name="messagesSearch"
                         placeholder="Search chats"
-
+                        onChange={event => setSearch(event.target.value)}
                     />
                 </form>
-                <SideChat users={users} user={user} conversations={conversations} createConversation={createConversation} />
+                <SideChat users={users} user={user} conversations={conversations} createConversation={createConversation} filteredUsers={filteredUsers} />
 
             </aside>
             {params.conversationId ? (
