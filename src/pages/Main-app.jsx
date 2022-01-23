@@ -2,8 +2,9 @@ import SideChat from "./Side-chat"
 import MessagesList from "./Messages-list"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import Header from "../components/Header"
 
-function MainApp({ user, users }) {
+function MainApp({ user, users, setUser, setUsers }) {
     const navigate = useNavigate()
 
     const [conversations, setConversations] = useState([])
@@ -48,16 +49,7 @@ function MainApp({ user, users }) {
 
             <aside>
 
-                <header className="panel">
-                    <img
-                        className="avatar"
-                        width="50"
-                        height="50"
-                        src={user.avatar}
-                        alt=""
-                    />
-                    <h3>{user.firstName} {user.lastName}</h3>
-                </header>
+                <Header user={user} setUser={setUser} users={users} setUsers={setUsers} />
 
 
                 <form className="aside__search-container">

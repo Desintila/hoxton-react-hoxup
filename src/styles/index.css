@@ -269,3 +269,7 @@ textarea:focus {
   border-radius: 100%;
   background-color: rgb(33, 190, 104);
 }
+.settings{
+  width: 40px;
+  margin-left: 1rem;
+}

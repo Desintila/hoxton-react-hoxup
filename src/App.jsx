@@ -15,8 +15,8 @@ export default function App() {
       <Routes>
         <Route index element={<Navigate replace to='/login' />} />
         <Route path='/login' element={<Login setUser={setUser} users={users} setUsers={setUsers} />} />
-        <Route path='/logged-in' element={<MainApp user={user} users={users} />} />
-        <Route path='/logged-in/:conversationId' element={<MainApp user={user} users={users} />} />
+        <Route path='/logged-in' element={<MainApp user={user} users={users} setUser={setUser} setUsers={setUsers} />} />
+        <Route path='/logged-in/:conversationId' element={<MainApp user={user} users={users} setUser={setUser} setUsers={setUsers} />} />
       </Routes>
 
     </>
